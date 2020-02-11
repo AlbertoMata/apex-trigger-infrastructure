@@ -1,5 +1,6 @@
 @isTest
 public with sharing class TestTriggerFramework {
+
 	@TestSetup
 	static void setUpRecords() {
 		Id currentUserId = UserInfo.getUserId();
@@ -16,7 +17,7 @@ public with sharing class TestTriggerFramework {
 
 		Account acct                     = new Account();
 		        acct.Name                = 'testacct1';
-		        acct.Tipo_de_Producto__c = 'VSAT';
+		        // acct.Tipo_de_Producto__c = 'VSAT';
 		insert acct;
 	}
 
@@ -25,8 +26,7 @@ public with sharing class TestTriggerFramework {
 		Account acct1      = [SELECT Id, Name FROM Account WHERE Name = 'testacct1'];
 		        acct1.Name = 'testacct2';
 		update acct1;
-
-		System.assert(true, 'testMessage');
+		System.assert (true, 'testMessage');
 	}
 
 	@isTest
@@ -38,13 +38,20 @@ public with sharing class TestTriggerFramework {
 		try {
 			delete acct1;
 		} catch (Exception e) {
-			System.debug(e);
+			System.debug (e);
 		}
 
-		Test.stopTest();
+		Test.stopTest ();
 
 		undelete acct1;
 
-		System.assert(true, 'testMessage');
+		System.assert (true, 'testMessage');
 	}
+
+	@isTest
+	static void extra() {
+		TriggerException ex = new TriggerException ();
+		System.assert (true, 'testMessage');
+	}
+
 }
