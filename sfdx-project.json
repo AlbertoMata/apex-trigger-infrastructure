@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "ATAF",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT"
+            "versionName": "Version 1.0",
+            "versionNumber": "1.0.1.NEXT"
         }
     ],
     "namespace": "",
@@ -13,6 +13,12 @@
     "sourceApiVersion": "47.0",
     "packageAliases": {
         "ATAF": "0Ho0W000000XZAvSAO",
-        "ATAF@0.1.0-1": "04t0W000001dCfHQAU"
+        "ATAF@0.1.0-1": "04t0W000001dCfHQAU",
+        "ATAF@1.0.0-1": "04t0W000001dCfbQAE",
+        "ATAF@1.0.0-2": "04t0W000001dCgFQAU",
+        "ATAF@1.0.0-3": "04t0W000001dCgKQAU",
+        "ATAF@1.0.0-4": "04t0W0000015dY7QAI",
+        "ATAF@1.0.0-5": "04t0W0000015dYCQAY",
+        "ATAF@1.0.1-1": "04t0W0000015dYHQAY"
     }
 }

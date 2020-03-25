@@ -29,26 +29,18 @@ métodos para controlar el ciclo de ejecución de los triggers, al
 sobreescribirlos se controla el comportamiento de los triggers a lo largo de
 la transacción.
 
-### Consideraciones
+### Propósito
 
 La convención de nombres y el patrón de diseño en sí mismo, hacen que las
 clases y sus métodos estén **fuertemente ligados** al módulo base de todos
-los triggers. No obstante, esto se hace con el fin de
+los triggers. Esto se hace con el fin de
 **homologar la base de código**; así, la forma de leer el trigger de un
-objeto es idéntica para todos los demás triggers. Además, nos fuerza a
-realizar una **segmentación de intereses** correcta y permite que podamos reutilizar
-código. En términos simples, la función principal del módulo es *preescribir
-la ruta a seguir para el desarrollo de triggers*. Las setencias
-condicionales que ahorra solamente reduce un poco la complejidad ciclomática
-de nuestros triggers.
-
-
-### Ventajas de este enfoque
-
-* La gestión de triggers se vuelve uniforme en toda la organización. Al estar
-bien definido el ciclo de ejecución y la delegación de responsiabilidad de un
-componente a otro. Se evitan redundancias y problemas en la gestión de
-registros asociados al ciclo de ejecución.
+objeto es idéntica para todos los demás. Esto nos fuerza a
+realizar una **segmentación de intereses** correcta y permite que podamos
+**reutilizar código**. En términos simples, la función principal del módulo es
+**preescribir la ruta a seguir para el desarrollo y mantenimiento de triggers**.
+Las setencias condicionales que ahorra solamente reducen un poco la
+**complejidad ciclomática** del código.
 
 
 
