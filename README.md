@@ -41,3 +41,14 @@ realizar una **segmentación de intereses** correcta y permite que podamos
 **preescribir la ruta a seguir para el desarrollo y mantenimiento de triggers**.
 Las setencias condicionales que ahorra solamente reducen un poco la
 **complejidad ciclomática** del código.
+
+### Autor
+
+El autor de esté módulo es Hari Krishnan, quien ofrece una explicación detallada
+de la estructura de este paquete en el siguiente [enlace]
+[https://code.google.com/archive/p/apex-trigger-architecture-framework/].
+Originalmente el paquete está licenciado bajo Apache License 2.0 por lo que
+agregué la licencia al repositorio. Se han añadido modificaciones a este módulo
+para hacerlo más simple de desplegar.
+
+
