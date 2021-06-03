@@ -1,3 +1,9 @@
+/**
+ * @author Alberto Mata
+ * @date 05/03/2021
+ * @description Unit tests for the entire framework 
+ *				
+ */
 @isTest
 public with sharing class TestTriggerFramework {
 
@@ -17,7 +23,6 @@ public with sharing class TestTriggerFramework {
 
 		Account acct                     = new Account();
 		        acct.Name                = 'testacct1';
-		        // acct.Tipo_de_Producto__c = 'VSAT';
 		insert acct;
 	}
 

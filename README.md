@@ -1,54 +1,42 @@
-# Infraestructura para triggers
+# Trigger infrastructure
 
-## Patrón de Diseño para Triggers
+## Design pattern for triggger creation
 
-Para mejorar la gestión y el desarrollo de triggers, se utiliza una variación
-del patrón de diseño llamado [Dynamic Dispatch](https://en.wikipedia.org/w/index.php?title=Dynamic_dispatch&oldid=932525185).
-La idea básica es poder delegar la secuencia de ejecución de un trigger a un
-**enrutador** (el dispatcher) que seleccionará el **handler** apropiado
-dependiendo del objeto y del evento en cuestión (afterInsert, beforeDelete
-etc.). Este enrutador debe ser provisto por el desarrollador y debe heredar
-su funcionalidad de una clase virtual llamada *TriggerDispatcherBase*. Debido
-a que la **instancia del enrutador se determina en tiempo de ejecución**, la
-clase que sirva para este propósito tiene que llevar la siguiente
-nomenclatura:
+To improve the management and development of Apex triggers, here we are using a
+variation of a design pattern [Dynamic Dispatch](https://en.wikipedia.org/w/index.php?title=Dynamic_dispatch&oldid=932525185).
+According to event fired, the basic idea is to delegate the trigger execution
+sequence to a **code router** (the dispatcher) that will select the appropriate
+**handler** according to the events fired (afterInsert, beforeDelete, etc.). The
+developer will create the dispatcher, and it will inherit functionality from a
+virtual class called `TriggerDispatcherBase`. We need to use a specific naming
+convention because for dispatchers because they will be searched at runtime: 
 
+```
     [SObjectName]TriggerDispatcher
+```
 
-Por ejemplo, para el objeto Account, el enrutador se llamará:
 
-    AccountTriggerDispatcher
+For a custom object called `Foo__c`, we must create a class called:
 
-Para un objeto personalizado Foo__c, se debera crear una clase llamada: 
-
+```
     FooTriggerDispatcher
+```
+### Purpose
 
-El handler de cada evento, debe heredar la clase virtual
-*TriggerHandlerBase*. La clase como tal, define de forma tres
-métodos para controlar el ciclo de ejecución de los triggers, al
-sobreescribirlos se controla el comportamiento de los triggers a lo largo de
-la transacción.
-
-### Propósito
-
-La convención de nombres y el patrón de diseño en sí mismo, hacen que las
-clases y sus métodos estén **fuertemente ligados** al módulo base de todos
-los triggers. Esto se hace con el fin de
-**homologar la base de código**; así, la forma de leer el trigger de un
-objeto es idéntica para todos los demás. Esto nos fuerza a
-realizar una **segmentación de intereses** correcta y permite que podamos
-**reutilizar código**. En términos simples, la función principal del módulo es
-**preescribir la ruta a seguir para el desarrollo y mantenimiento de triggers**.
-Las setencias condicionales que ahorra solamente reducen un poco la
-**complejidad ciclomática** del código.
+The naming conventions and the design pattern convert classes and their method
+closely related entities. The intention is to homogenize the codebase. This way
+we can read trigger's code from one object in the same way that one from others.
+This methodology encourages us to establish a correct separation of concerns and
+code modularization. In simple terms, the primary function of this module is to
+prescribe the path to develop and maintain triggers.
 
 ### Autor
 
-El autor de esté módulo es Hari Krishnan, quien ofrece una explicación detallada
-de la estructura de este paquete en el siguiente [enlace]
-[https://code.google.com/archive/p/apex-trigger-architecture-framework/].
-Originalmente el paquete está licenciado bajo Apache License 2.0 por lo que
-agregué la licencia al repositorio. Se han añadido modificaciones a este módulo
-para hacerlo más simple de desplegar.
-
-
+The author of this module is Hari Krishnan, who offers a more detailed
+explanation of the package structure on his site. These details can be found in
+the following
+[link](https://code.google.com/archive/p/apex-trigger-architecture-framework/).
+Initially, this package was licensed under the terms of the Apache 2.0 license,
+so I added the appropriate file. I have added unit test classes to the
+repository and some settings to deploy it as an unlocked package. There will be
+more changes upcoming.
