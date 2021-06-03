@@ -30,7 +30,7 @@ This methodology encourages us to establish a correct separation of concerns and
 code modularization. In simple terms, the primary function of this module is to
 prescribe the path to develop and maintain triggers.
 
-### Autor
+### Author
 
 The author of this module is Hari Krishnan, who offers a more detailed
 explanation of the package structure on his site. These details can be found in
