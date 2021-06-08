@@ -13,15 +13,21 @@ a que la instancia del enrutador se determina en tiempo de ejecución, la
 clase que sirva para este propósito tiene que llevar la siguiente
 nomenclatura:
 
-    [SObjectName]TriggerDispatcher
+```
+[SObjectName]TriggerDispatcher
+```
 
 Por ejemplo, para el objeto Account, el enrutador se llamará:
 
-    AccountTriggerDispatcher
+```
+AccountTriggerDispatcher
+```
 
 Para un objeto personalizado Foo__c, se debera crear una clase llamada: 
 
-    FooTriggerDispatcher
+```
+FooTriggerDispatcher
+```
 
 El handler de cada evento, debe heredar la clase virtual `TriggerHandlerBase`.
 Dicha clase define de forma tres métodos para controlar el ciclo de ejecución de
