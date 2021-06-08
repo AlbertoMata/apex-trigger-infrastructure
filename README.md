@@ -12,14 +12,14 @@ virtual class called `TriggerDispatcherBase`. We need to use a specific naming
 convention because for dispatchers because they will be searched at runtime: 
 
 ```
-    [SObjectName]TriggerDispatcher
+[SObjectName]TriggerDispatcher
 ```
 
 
 For a custom object called `Foo__c`, we must create a class called:
 
 ```
-    FooTriggerDispatcher
+FooTriggerDispatcher
 ```
 ### Purpose
 
